@@ -22,11 +22,11 @@ struct Character: Decodable, Identifiable {
   var id: Int
   var name: String
   var description: String
-  var thumbnail: Image
+  var thumbnail: Thumbnail
   
 }
 
-struct Image: Decodable {
+struct Thumbnail: Decodable {
   var path: String
   var ext: String
   
