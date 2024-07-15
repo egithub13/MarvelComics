@@ -16,6 +16,6 @@ struct Constants {
   }
   
   struct URLS {
-    static let baseURL = "https://gateway.marvel.com"
+    static let baseURL = "https://gateway.marvel.com/v1/public/characters?"
   }
 }
