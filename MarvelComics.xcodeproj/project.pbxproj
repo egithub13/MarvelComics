@@ -12,6 +12,7 @@
 		4337BB8C2C45B7A800C63D40 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337BB8B2C45B7A800C63D40 /* CharacterListView.swift */; };
 		4337BB8F2C45BE9200C63D40 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337BB8E2C45BE9200C63D40 /* ContentViewModel.swift */; };
 		4337BB912C45BFCB00C63D40 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337BB902C45BFCB00C63D40 /* Enums.swift */; };
+		4337BB932C45DC2700C63D40 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337BB922C45DC2700C63D40 /* CharacterDetailView.swift */; };
 		43E712282C459BBD00C80206 /* MarvelComicsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E712272C459BBD00C80206 /* MarvelComicsApp.swift */; };
 		43E7122A2C459BBD00C80206 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E712292C459BBD00C80206 /* ContentView.swift */; };
 		43E7122C2C459BBF00C80206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E7122B2C459BBF00C80206 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		4337BB8B2C45B7A800C63D40 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		4337BB8E2C45BE9200C63D40 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		4337BB902C45BFCB00C63D40 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		4337BB922C45DC2700C63D40 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		43E712242C459BBD00C80206 /* MarvelComics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelComics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E712272C459BBD00C80206 /* MarvelComicsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelComicsApp.swift; sourceTree = "<group>"; };
 		43E712292C459BBD00C80206 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				4337BB8B2C45B7A800C63D40 /* CharacterListView.swift */,
+				4337BB922C45DC2700C63D40 /* CharacterDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				4337BB912C45BFCB00C63D40 /* Enums.swift in Sources */,
 				43E712282C459BBD00C80206 /* MarvelComicsApp.swift in Sources */,
 				4337BB892C45B47E00C63D40 /* Constants.swift in Sources */,
+				4337BB932C45DC2700C63D40 /* CharacterDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

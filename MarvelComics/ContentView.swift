@@ -12,9 +12,14 @@ struct ContentView: View {
   @State private var viewModel = ContentViewModel()
   
   var body: some View {
-    VStack {
-      Text(viewModel.characters.first?.name ?? "")
-      
+    NavigationStack {
+      List(viewModel.characters) { character in
+        NavigationLink(destination: CharacterDetailView()) {
+          Text(character.name)
+        }
+      }
+      .navigationTitle("Marvel Characters")
+      .navigationBarTitleDisplayMode(.inline)
     }
   }
 }
@@ -28,9 +33,6 @@ struct BackgroundView: View {
     
   }
 }
-
-
-
 #Preview {
     ContentView()
 }

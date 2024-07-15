@@ -43,8 +43,7 @@ extension ContentViewModel {
     }
     
     do {
-      let decoder = JSONDecoder()
-      let characterData = try decoder.decode(CharacterDataWrapper.self, from: data)
+      let characterData = try JSONDecoder().decode(CharacterDataWrapper.self, from: data)
       self.characters = characterData.data.results
     } catch {
       print("Invalid status code")
