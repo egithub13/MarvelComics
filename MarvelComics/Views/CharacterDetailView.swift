@@ -9,8 +9,10 @@ import SwiftUI
 
 struct CharacterDetailView: View {
   
+  //var name: String
+  
     var body: some View {
-        Text("I'm some character")
+        Text("3-D Man")
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
   
   @State private var viewModel = ContentViewModel()
+  @State private var showAlert = false
   
   var body: some View {
     NavigationStack {
@@ -18,6 +19,7 @@ struct ContentView: View {
           Text(character.name)
         }
       }
+    
       .navigationTitle("Marvel Characters")
       .navigationBarTitleDisplayMode(.inline)
     }
@@ -34,5 +36,5 @@ struct BackgroundView: View {
   }
 }
 #Preview {
-    ContentView()
+  ContentView()
 }

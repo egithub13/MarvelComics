@@ -13,6 +13,7 @@ import Observation
 class ContentViewModel {
   
   var characters = [Character]()
+  var error: Error?
   
   init() {
     loadData()
@@ -30,24 +31,24 @@ extension ContentViewModel {
     let hash = hashString.MD5
     let endpoint = Constants.URLS.baseURL + "ts=\(timestamp)&apikey=\(Constants.Keys.publickey)&hash=\(hash)"
     
-    guard let url = URL(string: endpoint) else {
-      print("Invalid URL")
-      throw NetworkError.invalidURL
-    }
-    
-    let (data, response) = try await URLSession.shared.data(from: url)
-    
-    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-      print("Invalid status code")
-      throw NetworkError.invalidStatusCode
-    }
-    
     do {
-      let characterData = try JSONDecoder().decode(CharacterDataWrapper.self, from: data)
-      self.characters = characterData.data.results
+      guard let url = URL(string: endpoint) else {
+        throw MarvelAPIError.invalidURL
+      }
+      
+      let (data, response) = try await URLSession.shared.data(from: url)
+    
+      guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        throw MarvelAPIError.invalidStatusCode
+      }
+    
+      guard let characters = try JSONDecoder().decode(CharacterDataWrapper?.self, from: data) else {
+        throw MarvelAPIError.invalidData
+      }
+      self.characters = characters.data.results
+      
     } catch {
-      print("Invalid status code")
-      throw NetworkError.decodingError
+      self.error = error
     }
   }
   
