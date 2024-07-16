@@ -14,8 +14,21 @@ class ContentViewModel {
   
   var characters = [Character]()
   var error: Error?
+  let pageLimit = 20
+  var page = 0
+  var baseURL = "https://gateway.marvel.com/v1/public/characters?"
+  
+  var urlString: String {
+    return "\(baseURL)limit=\(pageLimit)&offset=\(page)&"
+  }
   
   init() {
+    loadData()
+  }
+  
+  func refresh() {
+    characters.removeAll()
+    page = 0
     loadData()
   }
 }
@@ -29,9 +42,11 @@ extension ContentViewModel {
     let timestamp = "\(Date().timeIntervalSince1970)"
     let hashString = timestamp + Constants.Keys.privatekey + Constants.Keys.publickey
     let hash = hashString.MD5
-    let endpoint = Constants.URLS.baseURL + "ts=\(timestamp)&apikey=\(Constants.Keys.publickey)&hash=\(hash)"
+    let endpoint = urlString + "ts=\(timestamp)&apikey=\(Constants.Keys.publickey)&hash=\(hash)"
     
     do {
+      
+      page += 20
       guard let url = URL(string: endpoint) else {
         throw MarvelAPIError.invalidURL
       }
@@ -45,7 +60,7 @@ extension ContentViewModel {
       guard let characters = try JSONDecoder().decode(CharacterDataWrapper?.self, from: data) else {
         throw MarvelAPIError.invalidData
       }
-      self.characters = characters.data.results
+      self.characters.append(contentsOf: characters.data.results)
       
     } catch {
       self.error = error
